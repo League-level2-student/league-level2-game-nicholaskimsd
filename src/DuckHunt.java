@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class DuckHunt {
 	JFrame frame;
@@ -9,7 +10,8 @@ GamePanel gamepanel = new GamePanel();
 	DuckHunt() {
 		frame = new JFrame();
 		frame.add(gamepanel);
-		
+		JOptionPane.showMessageDialog(null, "press enter again to start playing");
+
 	}
 
 	public static void main(String[] args) {

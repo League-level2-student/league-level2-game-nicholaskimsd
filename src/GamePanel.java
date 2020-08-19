@@ -1,15 +1,22 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.geom.Ellipse2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.function.Function;
 
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel 
+implements ActionListener, KeyListener {
 	final int MENU = 0;
 	final int GAME = 1;
 	final int END = 2;
@@ -19,6 +26,7 @@ public class GamePanel extends JPanel {
 	Font instructionFont = new Font("Arial", Font.PLAIN, 24);
 	BufferedImage bgImage;
 	int x = 250;
+	
 
 	GamePanel() {
 		loadImage("download.png");
@@ -33,14 +41,24 @@ public class GamePanel extends JPanel {
 			drawEndState(g);
 		}
 	}
-
+void updateMenuState() {
+	
+}
+void updateGameState() {
+	
+}
+void updateEndState() {
+	
+}
 	private void drawEndState(Graphics g) {
-		// TODO Auto-generated method stub
+		g.setColor(Color.RED);
+		g.fillRect(0, 0, WIDTH , HEIGHT);
 
 	}
 
 	private void drawGameState(Graphics g) {
-		// TODO Auto-generated method stub
+		g.setColor(Color.GREEN);
+		g.fillRect(0, 0, WIDTH , HEIGHT);
 
 	}
 
@@ -59,14 +77,38 @@ public class GamePanel extends JPanel {
 		}
 
 	}
-	private void drawCrossHair(Graphics g){
-	    Color yellow = new Color (0xEDFF62);
-	    g.setColor(yellow);
-	    for (int i = 0; i < 1; i++) {
-	    g.drawOval(crosshair.x + i, crosshair.y + i, 40 - i - i, 40 - i - i);
-	    }
-	    g.fillArc(crosshair.x + 10, crosshair.y + 21 , 20, 20, -45, -90);
-	    g.fillArc(crosshair.x - 1, crosshair.y + 10, 20, 20, -135, -90);
-	    g.fillArc(crosshair.x + 10, crosshair.y - 1, 20, 20, -225, -90);
-	    g.fillArc(crosshair.x + 21, crosshair.y + 10, 20, 20, -315, -90);
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+		    if (currentState == END) {
+		        currentState = MENU;
+		        
+		    } else {
+		        currentState++;
+		    }
+		}   
+	
+		}
+	
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}
