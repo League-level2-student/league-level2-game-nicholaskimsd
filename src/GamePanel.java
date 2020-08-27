@@ -29,7 +29,7 @@ implements ActionListener, KeyListener {
 	
 
 	GamePanel() {
-		loadImage("download.png");
+		
 	}
 
 	public void paintComponent(Graphics g) {
@@ -67,16 +67,7 @@ void updateEndState() {
 
 	}
 
-	void loadImage(String imageFile) {
-
-		try {
-			bgImage = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-	}
+	
 
 	@Override
 	public void keyPressed(KeyEvent e) {
